@@ -32,6 +32,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qQJ-7i-BTD" kind="show" identifier="edit" id="6ny-Mw-zUk"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -42,7 +45,7 @@
                     <navigationItem key="navigationItem" id="mfe-rp-TzH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vcq-qW-1g2">
                             <connections>
-                                <segue destination="qQJ-7i-BTD" kind="show" id="sbb-aw-rnp"/>
+                                <segue destination="qQJ-7i-BTD" kind="show" identifier="add" id="sbb-aw-rnp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -73,7 +76,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="RQd-Wk-r9I">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="N4l-1i-UIX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="N4l-1i-UIX">
+                            <connections>
+                                <segue destination="CKk-HH-cG5" kind="unwind" unwindAction="unwindToMain:" id="lmH-yJ-q7w"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
@@ -82,6 +89,7 @@
                     </simulatedScreenMetrics>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxD-fG-qwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CKk-HH-cG5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1105" y="-196"/>
         </scene>
@@ -109,4 +117,7 @@
             <point key="canvasLocation" x="197" y="-196"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6ny-Mw-zUk"/>
+    </inferredMetricsTieBreakers>
 </document>

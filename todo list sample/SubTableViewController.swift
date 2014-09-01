@@ -9,6 +9,8 @@
 import UIKit
 
 class SubTableViewController: UITableViewController {
+    
+    var editingToDoArray = [AnyObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +50,22 @@ class SubTableViewController: UITableViewController {
         } else {
             cell.titleLabel.text = "日付"
         }
-    
         
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        if (self.editingToDoArray[0] as Int != -1) {
+            if (row == 0) {
+                var str = self.editingToDoArray[1] as String
+                cell.titleTextField.text = str
+            } else {
+                var date = self.editingToDoArray[2] as NSDate
+                cell.titleTextField.text = formatter.stringFromDate(date)
+            }
+        } else {
+            if (row == 1) {
+                cell.titleTextField.text =  formatter.stringFromDate(NSDate())
+            }
+        }
 
         return cell
     }
@@ -58,6 +74,7 @@ class SubTableViewController: UITableViewController {
         return SubTableViewCell.rowHeight()
     }
     
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
@@ -93,14 +110,15 @@ class SubTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+
     }
-    */
+    
 
 }
